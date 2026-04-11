@@ -41,7 +41,7 @@ export default function ArenaScene({ shift, winner }) {
       <rect x={W/2-2} y={groundY-16} width={4} height={16} rx={2} fill="#ea580c"/>
 
       <g style={{transition:"transform 0.45s cubic-bezier(0.34,1.56,0.64,1)"}} transform={`translate(${clampedShift},0)`}>
-        <image href="/thug_of_war_img_2.png" x={W/2 - 320} y={cy-210} width={640} height={420} preserveAspectRatio="xMidYMid meet" />
+        <image href="/thumbnails/tug.png" x={W/2 - 320} y={cy-210} width={640} height={420} preserveAspectRatio="xMidYMid meet" />
       </g>
     </svg>
   );

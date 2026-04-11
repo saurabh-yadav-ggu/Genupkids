@@ -96,12 +96,13 @@ export const WinScreen = ({ winner, scores, onPlayAgain }) => {
             color: '#fff',
             border: 'none',
             borderRadius: RADIUS.full,
-            padding: '10px 20px',
+            padding: '12px 24px',
             fontSize: 14,
-            fontWeight: 900,
+            fontWeight: 800,
             cursor: 'pointer',
-            fontFamily: "'Nunito', sans-serif",
+            fontFamily: "'Plus Jakarta Sans', sans-serif",
             boxShadow: `0 4px 0 ${colors.dark}`,
+            transition: 'all 0.1s active:scale-95'
           }}
         >
           🔄 Play Again

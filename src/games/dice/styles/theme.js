@@ -3,30 +3,30 @@
  */
 
 export const COLORS = {
-  primary: "#1A1A2E",
-  light: "#F0F2FF",
-  lightWarm: "#FFFBF0",
-  border: "#F0F0F0",
-  borderLight: "#E8EAFF",
-  disabled: "#D0D0D0",
-  gray: "#888",
-  lightGray: "#AAA",
-  darkGray: "#CCC",
-  shadow: "rgba(0,0,0,0.13)",
+  primary: "#006093", // website primary
+  light: "#f5f7f8", // website surface
+  lightWarm: "#FFD54F", // website secondary-container
+  border: "#e5e9ea", // website surface-container
+  borderLight: "#dfe3e4", // website surface-container-high
+  disabled: "#d0d5d7", // website surface-dim
+  gray: "#595c5d", // website on-surface-variant
+  lightGray: "#747778", // website outline
+  darkGray: "#2c2f30", // website on-surface
+  shadow: "rgba(0,0,0,0.1)",
 };
 
 export const PLAYER_COLORS = {
   0: {
-    primary: "#E8324A",
-    dark: "#A01F2F",
-    light: "#FFEAED",
-    lightBg: "#FFF5F6",
+    primary: "#006093", // primary
+    dark: "#005480", // primary-dim
+    light: "#69bdff", // primary-container
+    lightBg: "#ebf4ff", // on-primary
   },
   1: {
-    primary: "#3B5BDB",
-    dark: "#243693",
-    light: "#EBF0FF",
-    lightBg: "#F5F7FF",
+    primary: "#9f345d", // tertiary
+    dark: "#8f2751", // tertiary-dim
+    light: "#ff8db2", // tertiary-container
+    lightBg: "#ffeff1", // on-tertiary
   },
 };
 

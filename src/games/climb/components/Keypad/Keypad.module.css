@@ -6,11 +6,12 @@
 
 .kbtn {
   border: none;
-  border-radius: 20px;
-  padding: 12px 0;
-  font-size: 24px;
-  min-height: 56px;
-  font-family: 'Fredoka One', cursive;
+  border-radius: 18px;
+  padding: clamp(8px, 1.2vh, 12px) 0;
+  font-size: clamp(18px, 1.5vw, 24px);
+  min-height: 48px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 800;
   width: 100%;
   cursor: pointer;
   transition:

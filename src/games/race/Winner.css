@@ -62,21 +62,21 @@
 }
 
 .winner-title {
-  font-family: 'Fredoka One', cursive;
+  font-family: 'Plus Jakarta Sans', sans-serif;
   font-size: 38px;
   color: #fff;
   margin-bottom: 6px;
 }
 
 .winner-subtitle {
-  font-family: 'Nunito', sans-serif;
+  font-family: 'Be Vietnam Pro', sans-serif;
   font-size: 17px;
   color: rgba(255, 255, 255, .92);
   margin-bottom: 22px;
 }
 
 .play-again-button {
-  font-family: 'Fredoka One', cursive;
+  font-family: 'Plus Jakarta Sans', sans-serif;
   font-size: 20px;
   padding: 11px 34px;
   border-radius: 999px;

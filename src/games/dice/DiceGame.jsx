@@ -22,7 +22,7 @@ export default function DiceGame() {
 
   function toggleFullscreen() {
     if (!document.fullscreenElement) {
-      containerRef.current?.requestFullscreen().catch(() => {})
+      document.documentElement.requestFullscreen().catch(() => {})
     } else {
       document.exitFullscreen().catch(() => {})
     }
@@ -62,43 +62,29 @@ export default function DiceGame() {
 
   return (
     <>
-      <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@700;800;900&display=swap');
-      `}</style>
-
       <div
         ref={containerRef}
-        style={{
-          width: '100vw',
-          height: '100vh',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          padding: `${SPACING.md}px`,
-          background: '#f5f7ff',
-          overflow: 'hidden',
-          position: 'relative'
-        }}
+        className="game-viewport font-body"
       >
         {/* Back Button */}
         <button 
           onClick={() => navigate('/games/numerical')}
           title="Back to Dashboard"
           style={{
-            position: 'absolute', top: '20px', left: '20px', zIndex: 600,
-            width: '48px', height: '48px', borderRadius: '50%',
-            border: '2.5px solid rgba(0,0,0,0.1)', background: 'rgba(255,255,255,0.6)',
-            backdropFilter: 'blur(12px)', cursor: 'pointer', display: 'flex',
-            alignItems: 'center', justifyContent: 'center',
-            boxShadow: '0 4px 18px rgba(0,0,0,0.15)', transition: 'all 0.2s'
+            position: 'absolute', top: '30px', left: '30px', zIndex: 600,
+            padding: '12px 24px', borderRadius: '18px',
+            border: 'none', background: 'white',
+            cursor: 'pointer', display: 'flex',
+            alignItems: 'center', gap: '10px',
+            boxShadow: '0 8px 25px rgba(0,0,0,0.08)', transition: 'all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1)',
+            fontFamily: "'Plus Jakarta Sans', sans-serif",
+            fontWeight: '800', fontSize: '15px', color: '#006093'
           }}
-          onMouseEnter={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.9)'; e.currentTarget.style.transform = 'scale(1.12)'; }}
-          onMouseLeave={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.6)'; e.currentTarget.style.transform = 'scale(1)'; }}
+          onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-4px) scale(1.05)'; e.currentTarget.style.boxShadow = '0 12px 30px rgba(0,0,0,0.12)'; }}
+          onMouseLeave={e => { e.currentTarget.style.transform = 'translateY(0) scale(1)'; e.currentTarget.style.boxShadow = '0 8px 25px rgba(0,0,0,0.08)'; }}
         >
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1e293b" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-            <line x1="19" y1="12" x2="5" y2="12"></line>
-            <polyline points="12 19 5 12 12 5"></polyline>
-          </svg>
+          <span className="material-symbols-rounded" style={{ fontSize: '20px', fontWeight: '800' }}>arrow_back_ios_new</span>
+          BACK
         </button>
 
         {/* Fullscreen Button */}
@@ -106,41 +92,23 @@ export default function DiceGame() {
           onClick={toggleFullscreen}
           title={isFullscreen ? 'Exit Fullscreen' : 'Enter Fullscreen'}
           style={{
-            position: 'absolute', bottom: '20px', right: '20px', zIndex: 600,
-            width: '48px', height: '48px', borderRadius: '50%',
-            border: '2.5px solid rgba(0,0,0,0.1)', background: 'rgba(255,255,255,0.6)',
-            backdropFilter: 'blur(12px)', cursor: 'pointer', display: 'flex',
+            position: 'absolute', bottom: '30px', right: '30px', zIndex: 600,
+            width: '56px', height: '56px', borderRadius: '18px',
+            border: 'none', background: 'white',
+            cursor: 'pointer', display: 'flex',
             alignItems: 'center', justifyContent: 'center',
-            boxShadow: '0 4px 18px rgba(0,0,0,0.15)', transition: 'all 0.2s'
+            boxShadow: '0 8px 25px rgba(0,0,0,0.08)', transition: 'all 0.3s'
           }}
-          onMouseEnter={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.9)'; e.currentTarget.style.transform = 'scale(1.12)'; }}
-          onMouseLeave={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.6)'; e.currentTarget.style.transform = 'scale(1)'; }}
+          onMouseEnter={e => { e.currentTarget.style.transform = 'scale(1.1)'; e.currentTarget.style.background = '#f8f9fa'; }}
+          onMouseLeave={e => { e.currentTarget.style.transform = 'scale(1)'; e.currentTarget.style.background = 'white'; }}
         >
           {isFullscreen ? (
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1e293b" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M8 3v3a2 2 0 01-2 2H3"/><path d="M21 8h-3a2 2 0 01-2-2V3"/>
-              <path d="M3 16h3a2 2 0 012 2v3"/><path d="M16 21v-3a2 2 0 012-2h3"/>
-            </svg>
+            <span className="material-symbols-rounded" style={{ color: '#006093' }}>fullscreen_exit</span>
           ) : (
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1e293b" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M8 3H5a2 2 0 00-2 2v3"/><path d="M21 8V5a2 2 0 00-2-2h-3"/>
-              <path d="M3 16v3a2 2 0 002 2h3"/><path d="M16 21h3a2 2 0 002-2v-3"/>
-            </svg>
+            <span className="material-symbols-rounded" style={{ color: '#006093' }}>fullscreen</span>
           )}
         </button>
-        <div
-          style={{
-            maxWidth: 720,
-            width: '100%',
-            backgroundColor: '#fff',
-            borderRadius: RADIUS.xl,
-            border: `3px solid ${COLORS.borderLight}`,
-            display: 'flex',
-            flexDirection: 'column',
-            overflow: 'hidden',
-            boxShadow: `0 8px 40px rgba(0,0,0,0.13)`,
-          }}
-        >
+        <div className="game-content-card" style={{ paddingBottom: '40px' }}>
           {state.phase === 'won' ? (
             <WinScreen
               winner={state.gameWinner}

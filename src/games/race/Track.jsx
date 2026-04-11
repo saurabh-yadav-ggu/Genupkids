@@ -1,7 +1,7 @@
 import Car from './Car';
 import './Track.css';
 
-const F = "'Fredoka One', cursive";
+const F = "'Plus Jakarta Sans', sans-serif";
 
 function Track({ p1Pos, p2Pos, p1Bounce, p2Bounce }) {
   const STEPS = 10;

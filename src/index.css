@@ -150,3 +150,39 @@ body {
   background: var(--color-outline);
 }
 
+/* Game Fitting Utilities */
+.game-viewport {
+  width: 100% !important;
+  min-height: 100vh !important;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-surface);
+  position: relative;
+  z-index: 1;
+}
+
+.game-content-card {
+  width: 100%;
+  max-width: 1200px;
+  min-height: 0;
+  max-height: 98vh;
+  background: white;
+  border-radius: var(--radius-xl);
+  box-shadow: 0 20px 60px -10px rgba(0,0,0,0.15);
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  overflow-y: auto;
+  position: relative;
+  z-index: 10;
+  scroll-behavior: smooth;
+}
+
+@media (max-width: 768px) {
+  .game-content-card {
+    max-height: 100dvh;
+    border-radius: 0;
+  }
+}
+

@@ -27,7 +27,7 @@ export default function MathClimbGame() {
   function toggleFullscreen() {
     Sounds.fullscreen()
     if (!document.fullscreenElement) {
-      containerRef.current?.requestFullscreen().catch(() => {})
+      document.documentElement.requestFullscreen().catch(() => {})
     } else {
       document.exitFullscreen().catch(() => {})
     }
@@ -111,14 +111,28 @@ export default function MathClimbGame() {
         <WinnerOverlay winner={winner} onRestart={restart} />
       )}
 
-      <div ref={containerRef} className={styles.shell}>
+      <div className="game-viewport" style={{ overflowY: 'auto', padding: '20px 0' }}>
+        <div ref={containerRef} className={`${styles.shell} game-content-card`} style={{ border: 'none', maxWidth: '96%', height: 'fit-content', minHeight: '100%' }}>
         <div className={styles.sun} />
 
         <button 
           onClick={() => navigate('/games/numerical')}
-          style={{ position: 'absolute', top: '20px', left: '20px', zIndex: 100, padding: '10px 20px', background: '#3b82f6', color: 'white', border: 'none', borderRadius: '12px', cursor: 'pointer', fontFamily: 'system-ui, sans-serif', fontSize: '16px', fontWeight: 'bold', boxShadow: '0 4px 6px rgba(0,0,0,0.1)' }}
+          title="Back to Dashboard"
+          style={{
+            position: 'absolute', top: '30px', left: '30px', zIndex: 100,
+            padding: '12px 24px', borderRadius: '18px',
+            border: 'none', background: 'white',
+            cursor: 'pointer', display: 'flex',
+            alignItems: 'center', gap: '10px',
+            boxShadow: '0 8px 25px rgba(0,0,0,0.08)', transition: 'all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1)',
+            fontFamily: "'Plus Jakarta Sans', sans-serif",
+            fontWeight: '800', fontSize: '15px', color: '#006093'
+          }}
+          onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-4px) scale(1.05)'; e.currentTarget.style.boxShadow = '0 12px 30px rgba(0,0,0,0.12)'; }}
+          onMouseLeave={e => { e.currentTarget.style.transform = 'translateY(0) scale(1)'; e.currentTarget.style.boxShadow = '0 8px 25px rgba(0,0,0,0.08)'; }}
         >
-          &larr; Back
+          <span className="material-symbols-rounded" style={{ fontSize: '20px', fontWeight: '800' }}>arrow_back_ios_new</span>
+          BACK
         </button>
 
         {CLOUDS.map((c, i) => (
@@ -256,6 +270,7 @@ export default function MathClimbGame() {
           )}
         </button>
       </div>
+    </div>
     </>
   )
 }

@@ -43,16 +43,16 @@ export const Header = ({ onNewGame }) => {
       <button
         onClick={onNewGame}
         style={{
-          background: '#FFD700',
-          color: '#1A1A2E',
+          background: '#006093',
+          color: 'white',
           border: 'none',
           borderRadius: RADIUS.full,
           padding: `${SPACING.sm}px ${SPACING.lg}px`,
           fontSize: 13,
           fontWeight: 900,
           cursor: 'pointer',
-          fontFamily: "'Nunito', sans-serif",
-          boxShadow: `0 4px 0 #D4A500`,
+          fontFamily: "'Plus Jakarta Sans', sans-serif",
+          boxShadow: `0 4px 0 #005480`,
           transition: 'all 0.1s ease',
         }}
       >

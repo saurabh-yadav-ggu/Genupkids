@@ -9,16 +9,17 @@ export default function Keypad({ onKey, disabled, side }) {
         const isGo=k==="Go",isC=k==="C";
         return (
           <button key={k} disabled={disabled} onClick={()=>!disabled&&onKey(String(k))} style={{
-            padding:"clamp(9px,1.2vh,17px) 0",borderRadius:13,border:"none",
+            padding:"clamp(14px, 2vh, 22px) 0",borderRadius:16,border:"none",
             cursor:disabled?"not-allowed":"pointer",
-            fontSize:isGo?"clamp(14px,1.3vw,19px)":"clamp(18px,1.9vw,27px)",
-            fontWeight:900,fontFamily:"'Nunito',sans-serif",
-            background:isGo?btnBg:isC?"linear-gradient(135deg,#f87171,#dc2626)":"#fff",
-            color:isGo||isC?"#fff":"#1e293b",
-            boxShadow:isGo||isC?"0 4px 14px rgba(0,0,0,0.20)":"0 2px 8px rgba(0,0,0,0.08)",
-            transition:"transform 0.08s",opacity:disabled?0.5:1,outline:"none",
+            fontSize:isGo?"clamp(13px,1.4vw,18px)":"clamp(18px,2.2vw,28px)",
+            fontWeight:800,fontFamily:"'Plus Jakarta Sans',sans-serif",
+            background:isGo?btnBg:isC?"#f44336":"#fff",
+            color:isGo||isC?"#fff":"#006093",
+            boxShadow:isGo||isC?"0 6px 15px rgba(0,0,0,0.15)":"0 3px 10px rgba(0,0,0,0.06)",
+            transition:"all 0.1s cubic-bezier(0.4, 0, 0.2, 1)",opacity:disabled?0.5:1,outline:"none",
+            userSelect: 'none'
           }}
-            onMouseDown={e=>{if(!disabled)e.currentTarget.style.transform="scale(0.88)";}}
+            onMouseDown={e=>{if(!disabled)e.currentTarget.style.transform="scale(0.92)";}}
             onMouseUp={e=>e.currentTarget.style.transform="scale(1)"}
             onMouseLeave={e=>e.currentTarget.style.transform="scale(1)"}
           >{k}</button>

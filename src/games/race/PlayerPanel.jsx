@@ -1,7 +1,7 @@
 import './PlayerPanel.css';
 
-const F = "'Fredoka One', cursive";
-const B = "'Nunito', sans-serif";
+const F = "'Plus Jakarta Sans', sans-serif";
+const B = "'Be Vietnam Pro', sans-serif";
 
 function QBox({ q, isP1 }) {
   const sym = q.op === "×" ? "×" : q.op;

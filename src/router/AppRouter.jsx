@@ -56,10 +56,6 @@ const AppRouter = () => {
           <Route path="/games/numerical/race" element={<MathRaceGame />} />
           <Route path="/games/numerical/tug" element={<MathTugOfWarGame />} />
 
-          {/* TODO: Add routes for other game categories once pages are created */}
-          {/* <Route path="/games/alphabetical" element={<AlphabeticalGamesDashboard />} /> */}
-          {/* <Route path="/games/thinking" element={<ThinkingGamesDashboard />} /> */}
-          {/* <Route path="/games/matching" element={<MatchingGamesDashboard />} /> */}
         </Routes>
       </Suspense>
     </BrowserRouter>

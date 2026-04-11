@@ -59,44 +59,64 @@ export default function MathTugOfWarGame(){
       
       <button 
         onClick={() => navigate('/games/numerical')}
-        style={{ position: 'absolute', top: '16px', left: '16px', zIndex: 100, padding: '10px 20px', background: '#3b82f6', color: 'white', border: 'none', borderRadius: '12px', cursor: 'pointer', fontFamily: "'Nunito', sans-serif", fontSize: '16px', fontWeight: 'bold', boxShadow: '0 4px 6px rgba(0,0,0,0.1)' }}
+        title="Back to Dashboard"
+        style={{
+          position: 'absolute', top: '30px', left: '30px', zIndex: 100,
+          padding: '12px 24px', borderRadius: '18px',
+          border: 'none', background: 'white',
+          cursor: 'pointer', display: 'flex',
+          alignItems: 'center', gap: '10px',
+          boxShadow: '0 8px 25px rgba(0,0,0,0.08)', transition: 'all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1)',
+          fontFamily: "'Plus Jakarta Sans', sans-serif",
+          fontWeight: '800', fontSize: '15px', color: '#006093'
+        }}
+        onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-4px) scale(1.05)'; e.currentTarget.style.boxShadow = '0 12px 30px rgba(0,0,0,0.12)'; }}
+        onMouseLeave={e => { e.currentTarget.style.transform = 'translateY(0) scale(1)'; e.currentTarget.style.boxShadow = '0 8px 25px rgba(0,0,0,0.08)'; }}
       >
-        &larr; Back
+        <span className="material-symbols-rounded" style={{ fontSize: '20px', fontWeight: '800' }}>arrow_back_ios_new</span>
+        BACK
       </button>
 
       <header style={{position:"absolute",top:"120px",left:"50%",transform:"translateX(-50%)",zIndex:20,textAlign:"center"}}>
-        <div style={{fontFamily:"'Nunito',sans-serif",fontWeight:900,fontSize:"clamp(20px,2.8vw,42px)",color:"#1e3a5f",textShadow:"0 3px 0 rgba(255,255,255,0.85)",letterSpacing:-0.5}}>🎯 Math Tug of War!</div>
+        <div style={{fontFamily:"'Plus Jakarta Sans',sans-serif",fontWeight:800,fontSize:"clamp(20px,2.8vw,42px)",color:"#006093",textShadow:"0 3px 0 rgba(255,255,255,0.85)",letterSpacing:-1}}>🎯 Math Tug of War!</div>
       </header>
 
-      <div style={{
-        width:"100vw",height:"100vh",
-        background: "radial-gradient(ellipse at 30% 20%,#bfdbfe 0%,#e0f2fe 45%,#fce7f3 100%)",
-        overflow:"hidden",
-        display:"flex",flexDirection:"column",
-        alignItems:"center",justifyContent:"space-between",
-        padding:"clamp(56px,5vh,72px) clamp(8px,1.4vw,24px) clamp(6px,0.9vh,12px)",
-      }}>
-        <div style={{
-          flex:1,width:"100%",maxWidth:1700,display:"flex",alignItems:"center",
-          justifyContent:"space-between",gap:"clamp(12px,1.6vw,20px)",minHeight:0,
-        }}>
-          <div style={{paddingRight:"clamp(18px,2.2vw,28px)",flexShrink:0}}>
-            <PlayerPanel player={p1} onKey={k=>handleKey("left",k)} disabled={!!winner} side="left"/>
-          </div>
-          <div style={{flex:1,display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center",minWidth:0,gap:2}}>
-            
-            <div style={{fontFamily:"'Nunito',sans-serif",fontWeight:700,fontSize:"clamp(11px,1.2vw,17px)",color:"#475569",marginBottom:6,textAlign:"center"}}>First to <span style={{color:"#7c3aed",fontWeight:900}}>10 ⭐</span> wins!</div>
-            <div style={{width:"100%",maxWidth:680,flex:1,minHeight:0,display:"flex",alignItems:"center",paddingLeft:"clamp(18px,2.2vw,28px)",paddingRight:"clamp(18px,2.2vw,28px)"}}>
-              <ArenaScene shift={svgShift} winner={winner}/>
+      <div className="game-viewport">
+        <div 
+          className="game-content-card"
+          style={{
+            maxWidth: '1400px',
+            background: 'radial-gradient(ellipse at 30% 20%,#ebf4ff 0%,#f5f7f8 45%,#ffeff1 100%)'
+          }}
+        >
+          <div style={{
+            flex:1,width:"100%",padding:"clamp(10px, 2vw, 30px)",display:"flex",
+            alignItems:"center",justifyContent:"center",flexWrap: 'wrap',
+            gap:"clamp(12px, 3vw, 40px)",minHeight:0, overflowY: 'auto'
+          }}>
+            <div style={{flexShrink:0}}>
+              <PlayerPanel player={p1} onKey={k=>handleKey("left",k)} disabled={!!winner} side="left"/>
             </div>
-            {winner ? <WinBanner winner={winner} onReset={reset}/> : <p style={{fontFamily:"'Nunito',sans-serif",fontSize:"clamp(11px,1.1vw,15px)",color:"#94a3b8",textAlign:"center",fontWeight:700,marginTop:4}}>Answer your question to pull the rope! 💪</p>}
+            
+            <div style={{
+              flex: '1 1 300px', maxWidth: '600px', display:"flex", 
+              flexDirection:"column", alignItems:"center", justifyContent:"center", 
+              minWidth: '280px'
+            }}>
+              <div style={{fontFamily:"'Be Vietnam Pro',sans-serif",fontWeight:600,fontSize:"clamp(11px,1.2vw,17px)",color:"#595c5d",marginBottom:6,textAlign:"center"}}>First to <span style={{color:"#006093",fontWeight:800}}>10 ⭐</span> wins!</div>
+              <div style={{width:"100%",flex:1,minHeight: '180px', display:"flex",alignItems:"center"}}>
+                <ArenaScene shift={svgShift} winner={winner}/>
+              </div>
+              {winner ? <WinBanner winner={winner} onReset={reset}/> : <p style={{fontFamily:"'Be Vietnam Pro',sans-serif",fontSize:"clamp(11px,1.1vw,15px)",color:"#747778",textAlign:"center",fontWeight:600,marginTop:4}}>Answer your question to pull! 💪</p>}
+            </div>
+
+            <div style={{flexShrink:0}}>
+              <PlayerPanel player={p2} onKey={k=>handleKey("right",k)} disabled={!!winner} side="right"/>
+            </div>
           </div>
-          <div style={{paddingLeft:"clamp(18px,2.2vw,28px)",flexShrink:0}}>
-            <PlayerPanel player={p2} onKey={k=>handleKey("right",k)} disabled={!!winner} side="right"/>
+          <div style={{paddingBottom:"40px", display: 'flex', justifyContent: 'center'}}>
+            <ScoreBoard s1={p1.score} s2={p2.score}/>
           </div>
-        </div>
-        <div style={{paddingTop:"clamp(5px,0.7vh,10px)"}}>
-          <ScoreBoard s1={p1.score} s2={p2.score}/>
         </div>
       </div>
     </>

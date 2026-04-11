@@ -91,44 +91,66 @@ const MathRaceGame = () => {
       {winner && <Winner who={winner} onReset={reset} />}
       <FullscreenButton />
 
-      <div className="app-root">
-        <div className="game-title">
-          Math Car Race!
-        </div>
+      <button 
+          onClick={() => navigate('/games/numerical')}
+          title="Back to Dashboard"
+          style={{
+            position: 'absolute', top: '30px', left: '30px', zIndex: 100,
+            padding: '12px 24px', borderRadius: '18px',
+            border: 'none', background: 'white',
+            cursor: 'pointer', display: 'flex',
+            alignItems: 'center', gap: '10px',
+            boxShadow: '0 8px 25px rgba(0,0,0,0.08)', transition: 'all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1)',
+            fontFamily: "'Plus Jakarta Sans', sans-serif",
+            fontWeight: '800', fontSize: '15px', color: '#006093'
+          }}
+          onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-4px) scale(1.05)'; e.currentTarget.style.boxShadow = '0 12px 30px rgba(0,0,0,0.12)'; }}
+          onMouseLeave={e => { e.currentTarget.style.transform = 'translateY(0) scale(1)'; e.currentTarget.style.boxShadow = '0 8px 25px rgba(0,0,0,0.08)'; }}
+        >
+          <span className="material-symbols-rounded" style={{ fontSize: '20px', fontWeight: '800' }}>arrow_back_ios_new</span>
+          BACK
+        </button>
 
-        <div className="main-row">
-          <div className="panel-container">
-            <Panel 
-              player={p1} 
-              isP1={true}
-              onKey={k => handleKey("l", k)} 
-              disabled={!!winner} 
-              shake={p1Shake}
-            />
+      <div className="game-viewport">
+        <div className="game-content-card" style={{ maxWidth: '100%', padding: '40px' }}>
+          <div className="game-title">
+            Math Car Race!
           </div>
 
-          <div className="track-container">
-            <Track
-              p1Pos={p1.pos} 
-              p2Pos={p2.pos}
-              p1Bounce={p1Bounce} 
-              p2Bounce={p2Bounce}
-            />
+          <div className="main-row">
+            <div className="panel-container">
+              <Panel 
+                player={p1} 
+                isP1={true}
+                onKey={k => handleKey("l", k)} 
+                disabled={!!winner} 
+                shake={p1Shake}
+              />
+            </div>
+
+            <div className="track-container">
+              <Track
+                p1Pos={p1.pos} 
+                p2Pos={p2.pos}
+                p1Bounce={p1Bounce} 
+                p2Bounce={p2Bounce}
+              />
+            </div>
+
+            <div className="panel-container">
+              <Panel 
+                player={p2} 
+                isP1={false}
+                onKey={k => handleKey("r", k)} 
+                disabled={!!winner} 
+                shake={p2Shake}
+              />
+            </div>
           </div>
 
-          <div className="panel-container">
-            <Panel 
-              player={p2} 
-              isP1={false}
-              onKey={k => handleKey("r", k)} 
-              disabled={!!winner} 
-              shake={p2Shake}
-            />
+          <div className="footer-hint" style={{ marginTop: '20px' }}>
+            Solve your question ➜ speed UP the track ➜ first over the finish line wins! 🏆
           </div>
-        </div>
-
-        <div className="footer-hint">
-          Solve your question ➜ speed UP the track ➜ first over the finish line wins! 🏆
         </div>
       </div>
     </>

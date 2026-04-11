@@ -8,7 +8,7 @@
 }
 
 .finish-banner {
-  font-family: 'Fredoka One', cursive;
+  font-family: 'Plus Jakarta Sans', sans-serif;
   font-size: clamp(13px, 1.6vw, 20px);
   color: #fff;
   background: linear-gradient(90deg, #1e293b, #334155);
@@ -129,7 +129,7 @@
   position: absolute;
   top: 5.8%;
   z-index: 7;
-  font-family: 'Fredoka One', cursive;
+  font-family: 'Plus Jakarta Sans', sans-serif;
   font-size: 11px;
   color: white;
   border-radius: 0 0 8px 8px;
@@ -161,7 +161,7 @@
 .car-p2 { left: 72%; }
 
 .start-label {
-  font-family: 'Fredoka One', cursive;
+  font-family: 'Plus Jakarta Sans', sans-serif;
   font-size: clamp(12px, 1.4vw, 17px);
   color: #1e3a5f;
   background: rgba(255, 255, 255, .85);
@@ -187,7 +187,7 @@
 }
 
 .progress-label {
-  font-family: 'Nunito', sans-serif;
+  font-family: 'Be Vietnam Pro', sans-serif;
   font-weight: 800;
   font-size: clamp(11px, 1.2vw, 15px);
   color: #1e293b;
@@ -210,7 +210,7 @@
 }
 
 .progress-text {
-  font-family: 'Nunito', sans-serif;
+  font-family: 'Be Vietnam Pro', sans-serif;
   font-weight: 700;
   font-size: clamp(11px, 1.2vw, 14px);
   color: #1e293b;

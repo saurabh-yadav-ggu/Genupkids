@@ -18,7 +18,7 @@ export default function FullscreenBtn(){
     };
   },[]);
   const toggle = () => {
-    const el = document.getElementById("root") || document.body || document.documentElement;
+    const el = document.documentElement;
     const isCurrentlyFs = !!(
       document.fullscreenElement ||
       document.webkitFullscreenElement ||

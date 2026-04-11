@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { HashRouter, Routes, Route } from 'react-router-dom';
 import { lazy, Suspense } from 'react';
 import App from '../App';
 
@@ -43,7 +43,7 @@ const LoadingScreen = () => (
  */
 const AppRouter = () => {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <Suspense fallback={<LoadingScreen />}>
         <Routes>
           {/* Home Page */}
@@ -58,7 +58,7 @@ const AppRouter = () => {
 
         </Routes>
       </Suspense>
-    </BrowserRouter>
+    </HashRouter>
   );
 };
 

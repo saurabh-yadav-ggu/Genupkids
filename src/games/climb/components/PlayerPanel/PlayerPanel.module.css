@@ -1,0 +1,119 @@
+.panel {
+  background: var(--panel-bg);
+  border: 2.5px solid var(--panel-border);
+  border-radius: 36px;
+  padding: 20px 24px;
+  width: 400px;
+  min-width: 400px;
+  flex-shrink: 0;
+  box-shadow: 0 16px 50px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.panelBlue {
+  --panel-bg: #eff6ff;
+  --panel-border: #bfdbfe;
+  --accent: #2563eb;
+  --stat-bg: #dbeafe;
+  --pip-glow: rgba(37, 99, 235, 0.55);
+}
+
+.panelRed {
+  --panel-bg: #fff5f5;
+  --panel-border: #fecaca;
+  --accent: #dc2626;
+  --stat-bg: #fee2e2;
+  --pip-glow: rgba(220, 38, 38, 0.55);
+}
+
+.label {
+  text-align: center;
+  font-family: 'Fredoka One', cursive;
+  font-size: 18px;
+  letter-spacing: 2px;
+  color: var(--accent);
+}
+
+.input {
+  background: var(--input-bg, #fff);
+  border: 2px solid var(--panel-border);
+  border-radius: 16px;
+  padding: 12px 16px;
+  min-height: 56px;
+  font-size: 34px;
+  font-family: 'Fredoka One', cursive;
+  color: #1e293b;
+  text-align: center;
+  letter-spacing: 6px;
+  transition: background 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.inputOk {
+  --input-bg: #dcfce7;
+}
+
+.inputBad {
+  --input-bg: #fee2e2;
+}
+
+.placeholder {
+  color: #cbd5e1;
+}
+
+.markBad {
+  font-size: 16px;
+  color: #ef4444;
+  margin-left: 8px;
+}
+
+.markOk {
+  font-size: 16px;
+  color: #22c55e;
+  margin-left: 8px;
+}
+
+.stats {
+  background: var(--stat-bg);
+  border-radius: 14px;
+  padding: 8px 12px;
+  text-align: center;
+  font-family: 'Fredoka One', cursive;
+  font-size: 18px;
+  color: #475569;
+}
+
+.stats strong {
+  color: var(--accent);
+  font-weight: bold;
+}
+
+.pips {
+  display: flex;
+  gap: 4px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.pip {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #e2e8f0;
+  transition:
+    background 0.3s,
+    transform 0.2s;
+}
+
+.pipFilled {
+  background: var(--accent);
+  box-shadow: 0 0 7px var(--pip-glow);
+}
+
+.pipLatest {
+  transform: scale(1.3);
+}

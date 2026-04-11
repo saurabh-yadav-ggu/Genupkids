@@ -1,0 +1,135 @@
+.root {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.rootWinner {
+  filter: drop-shadow(0 0 16px gold);
+}
+
+@keyframes armL {
+  0%,
+  100% {
+    transform-origin: 28px 34px;
+    transform: rotate(-125deg) translateY(0);
+  }
+  50% {
+    transform-origin: 28px 34px;
+    transform: rotate(-45deg) translateY(-5px);
+  }
+}
+
+@keyframes armR {
+  0%,
+  100% {
+    transform-origin: 44px 34px;
+    transform: rotate(45deg) translateY(-5px);
+  }
+  50% {
+    transform-origin: 44px 34px;
+    transform: rotate(125deg) translateY(0);
+  }
+}
+
+@keyframes legL {
+  0%,
+  100% {
+    transform-origin: 30px 55px;
+    transform: rotate(28deg);
+  }
+  50% {
+    transform-origin: 30px 55px;
+    transform: rotate(-8deg);
+  }
+}
+
+@keyframes legR {
+  0%,
+  100% {
+    transform-origin: 42px 55px;
+    transform: rotate(-8deg);
+  }
+  50% {
+    transform-origin: 42px 55px;
+    transform: rotate(28deg);
+  }
+}
+
+@keyframes bodybob {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+@keyframes winpulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.12);
+  }
+}
+
+.svg {
+  overflow: visible;
+}
+
+.svgClimbing {
+  animation: bodybob 0.38s ease-in-out infinite;
+}
+
+.svgWinner {
+  animation: winpulse 0.7s ease-in-out infinite;
+}
+
+.armL {
+  transform-origin: 28px 34px;
+}
+
+.armLClimbing {
+  animation: armL 0.38s ease-in-out infinite;
+}
+
+.armLRest {
+  transform: rotate(-120deg);
+}
+
+.armR {
+  transform-origin: 44px 34px;
+}
+
+.armRClimbing {
+  animation: armR 0.38s ease-in-out infinite;
+}
+
+.armRRest {
+  transform: rotate(120deg);
+}
+
+.legL {
+  transform-origin: 30px 55px;
+}
+
+.legLClimbing {
+  animation: legL 0.38s ease-in-out infinite;
+}
+
+.legR {
+  transform-origin: 42px 55px;
+}
+
+.legRClimbing {
+  animation: legR 0.38s ease-in-out infinite;
+}
+
+.star {
+  font-size: 15px;
+}

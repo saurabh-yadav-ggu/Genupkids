@@ -1,0 +1,52 @@
+/**
+ * Global Animations and Keyframes
+ */
+
+ @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@700;800;900&display=swap');
+
+/* Animations */
+@keyframes diceSpin {
+  0% { transform: rotate(0) scale(1); }
+  50% { transform: rotate(180deg) scale(0.5); }
+  100% { transform: rotate(360deg) scale(1); }
+}
+
+@keyframes bop {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-9px); }
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.1; }
+}
+
+@keyframes popUp {
+  0% { transform: scale(0.55); opacity: 0; }
+  70% { transform: scale(1.07); }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20% { transform: translateX(-10px); }
+  40% { transform: translateX(10px); }
+  60% { transform: translateX(-6px); }
+  80% { transform: translateX(6px); }
+}
+
+@keyframes winPop {
+  0% { transform: scale(0.3) rotate(-5deg); opacity: 0; }
+  65% { transform: scale(1.06) rotate(1deg); }
+  100% { transform: scale(1) rotate(0); opacity: 1; }
+}
+
+@keyframes scorePop {
+  0%, 100% { transform: scale(1); }
+  40% { transform: scale(1.55); }
+}
+
+@keyframes confettiFall {
+  0% { opacity: 1; transform: translateY(-10px) rotate(0); }
+  100% { opacity: 0; transform: translateY(650px) rotate(800deg); }
+}

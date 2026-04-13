@@ -21,7 +21,7 @@ const Hero = () => {
           <button onClick={() => navigate('/games')} className="w-full sm:w-auto inline-flex items-center justify-center bg-primary-container text-on-primary-container font-display font-bold text-lg sm:text-xl px-10 py-4 rounded-full shadow-[0_6px_0_0_#005480] hover:translate-y-1 hover:shadow-[0_3px_0_0_#005480] active:translate-y-1.5 active:shadow-none transition-all outline-none">
             Start Playing
           </button>
-          <button className="w-full sm:w-auto inline-flex items-center justify-center bg-tertiary-container text-on-tertiary-container font-display font-bold text-lg sm:text-xl px-10 py-4 rounded-full shadow-[0_6px_0_0_#8f2751] hover:translate-y-1 hover:shadow-[0_3px_0_0_#8f2751] active:translate-y-1.5 active:shadow-none transition-all outline-none">
+          <button onClick={() => navigate('/heroverse')} className="w-full sm:w-auto inline-flex items-center justify-center bg-tertiary-container text-on-tertiary-container font-display font-bold text-lg sm:text-xl px-10 py-4 rounded-full shadow-[0_6px_0_0_#8f2751] hover:translate-y-1 hover:shadow-[0_3px_0_0_#8f2751] active:translate-y-1.5 active:shadow-none transition-all outline-none">
             Start Reading
           </button>
         </div>

@@ -109,11 +109,11 @@ const Card = ({ data, onClick }) => {
 
 const ActivityCards = ({ onSelectNumerical, onSelectAlphabetical, onSelectThinking, onSelectMatching }) => {
   return (
-    <section className="py-12 mt-8">
+    <section className="py-6 sm:py-12 mt-4 sm:mt-8 px-2 sm:px-0">
       {/* Header and Decorative Line */}
-      <div className="flex items-center justify-between mb-12">
-        <h2 className="font-display font-extrabold text-[28px] text-on-surface">Explore Activities</h2>
-        <div className="flex-grow ml-8 h-[6px] bg-primary-container rounded-full max-w-[200px]"></div>
+      <div className="flex items-center justify-between mb-8 sm:mb-12">
+        <h2 className="font-display font-extrabold text-2xl sm:text-[28px] text-on-surface">Explore Activities</h2>
+        <div className="hidden sm:block flex-grow ml-8 h-[6px] bg-primary-container rounded-full max-w-[200px]"></div>
       </div>
 
       {/* Cards Grid */}

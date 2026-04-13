@@ -26,10 +26,10 @@ const GameZone = () => {
             <div className="inline-block px-4 py-1.5 bg-secondary-container text-on-secondary-container rounded-full font-display font-bold text-xs sm:text-sm tracking-widest uppercase mb-2 sm:mb-3 -rotate-1 shadow-sm">
               IT'S PLAY TIME!
             </div>
-            <h1 className="font-display font-extrabold text-3xl md:text-5xl lg:text-5xl text-on-primary tracking-tight mb-2 leading-tight">
+            <h1 className="font-display font-extrabold text-2xl md:text-5xl lg:text-5xl text-on-primary tracking-tight mb-2 leading-tight">
               Welcome to the Game Zone!
             </h1>
-            <p className="text-base sm:text-lg text-on-primary/90 max-w-2xl mx-auto font-medium">
+            <p className="text-sm sm:text-lg text-on-primary/90 max-w-2xl mx-auto font-medium">
               Choose a world and start your adventure! Every click is a new discovery.
             </p>
             {/* Decorative Elements */}

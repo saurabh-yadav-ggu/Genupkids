@@ -110,14 +110,25 @@ body {
 }
 
 .scrapbook-shadow {
-  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.1), 
-              0 1px 4px -1px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.1),
+    0 1px 4px -1px rgba(0, 0, 0, 0.05);
 }
 
-.asymmetric-1 { transform: rotate(-0.6deg); }
-.asymmetric-2 { transform: rotate(0.4deg); }
-.asymmetric-3 { transform: rotate(-0.3deg); }
-.asymmetric-4 { transform: rotate(0.7deg); }
+.asymmetric-1 {
+  transform: rotate(-0.6deg);
+}
+
+.asymmetric-2 {
+  transform: rotate(0.4deg);
+}
+
+.asymmetric-3 {
+  transform: rotate(-0.3deg);
+}
+
+.asymmetric-4 {
+  transform: rotate(0.7deg);
+}
 
 /* Material Symbols config */
 .material-symbols-rounded {
@@ -169,7 +180,7 @@ body {
   max-height: 98vh;
   background: white;
   border-radius: var(--radius-xl);
-  box-shadow: 0 20px 60px -10px rgba(0,0,0,0.15);
+  box-shadow: 0 20px 60px -10px rgba(0, 0, 0, 0.15);
   display: flex;
   flex-direction: column;
   overflow-x: hidden;
@@ -183,28 +194,5 @@ body {
   .game-content-card {
     max-height: 100dvh;
     border-radius: 0;
-  }
-}
-
-/* Mobile Menu Animations */
-@keyframes slideInFromTop {
-  from {
-    transform: translateY(-10px);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-
-.animate-mobile-menu {
-  animation: slideInFromTop 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-
-@layer utilities {
-  .fade-in {
-    opacity: 1;
-    transition: opacity 0.2s ease-out;
   }
 }

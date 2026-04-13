@@ -1,0 +1,17 @@
+.asymmetric-card {
+    transform: rotate(-0.4deg);
+}
+
+.asymmetric-card-alt {
+    transform: rotate(0.6deg);
+}
+
+.floating-icon {
+    animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+}

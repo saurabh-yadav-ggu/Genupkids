@@ -2,6 +2,7 @@ import { useNavigate } from 'react-router-dom';
 import GameCard from '../components/GameCard';
 import CategorySidebar from '../components/CategorySidebar';
 import MobileNavbar from '../components/MobileNavbar';
+import Footer from '../components/Footer';
 import { numericalGames } from '../data/games';
 
 /**
@@ -93,6 +94,8 @@ const NumericalGamesDashboard = () => {
             </button>
           </div>
         </section>
+
+        <Footer />
       </main>
 
       {/* Mobile Bottom Navigation */}

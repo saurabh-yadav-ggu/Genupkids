@@ -1,11 +1,16 @@
 import { HashRouter, Routes, Route } from 'react-router-dom';
 import { lazy, Suspense } from 'react';
 import App from '../App';
+import ProtectedRoute from '../components/ProtectedRoute';
 
 // Lazy load pages for code splitting
 const NumericalGamesDashboard = lazy(() =>
   import('../pages/NumericalGamesDashboard')
 );
+const GameZone = lazy(() => import('../pages/GameZone'));
+const Login = lazy(() => import('../pages/Login'));
+const About = lazy(() => import('../pages/About'));
+const HeroVerse = lazy(() => import('../pages/HeroVerse'));
 
 // Lazy load games
 const DiceGame = lazy(() => import('../games/dice/DiceGame'));
@@ -46,15 +51,23 @@ const AppRouter = () => {
     <HashRouter>
       <Suspense fallback={<LoadingScreen />}>
         <Routes>
-          {/* Home Page */}
-          <Route path="/" element={<App />} />
+          {/* Public Route */}
+          <Route path="/login" element={<Login />} />
 
-          {/* Numerical/Math Games */}
-          <Route path="/games/numerical" element={<NumericalGamesDashboard />} />
-          <Route path="/games/numerical/dice" element={<DiceGame />} />
-          <Route path="/games/numerical/climb" element={<MathClimbGame />} />
-          <Route path="/games/numerical/race" element={<MathRaceGame />} />
-          <Route path="/games/numerical/tug" element={<MathTugOfWarGame />} />
+          {/* Protected Routes */}
+          <Route element={<ProtectedRoute />}>
+            <Route path="/" element={<App />} />
+            <Route path="/games" element={<GameZone />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/heroverse" element={<HeroVerse />} />
+
+            {/* Numerical/Math Games */}
+            <Route path="/games/numerical" element={<NumericalGamesDashboard />} />
+            <Route path="/games/numerical/dice" element={<DiceGame />} />
+            <Route path="/games/numerical/climb" element={<MathClimbGame />} />
+            <Route path="/games/numerical/race" element={<MathRaceGame />} />
+            <Route path="/games/numerical/tug" element={<MathTugOfWarGame />} />
+          </Route>
 
         </Routes>
       </Suspense>

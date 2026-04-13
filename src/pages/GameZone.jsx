@@ -12,7 +12,7 @@ const GameZone = () => {
       {/* Background ambient glow like Home page */}
       <div className="absolute top-[-10%] right-[-5%] w-[50vw] h-[50vw] rounded-full bg-tertiary-container/30 blur-[100px] pointer-events-none z-0"></div>
       
-      <div className="relative z-10 max-w-7xl mx-auto px-6 pt-4">
+      <div className="relative z-[100] max-w-7xl mx-auto px-6 pt-4">
         <Header />
       </div>
 

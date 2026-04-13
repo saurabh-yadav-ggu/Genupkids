@@ -8,7 +8,7 @@ const HeroVerse = () => {
   return (
     <div className="bg-[#f5f7f8] text-on-surface font-body min-h-screen font-sans selection:bg-[#69bdff]/30 selection:text-[#006093] pb-10">
       {/* Header */}
-      <div className="max-w-7xl mx-auto px-6 pt-4 w-full relative z-50">
+      <div className="relative z-[100] max-w-7xl mx-auto px-6 pt-4 w-full">
         <Header />
       </div>
 

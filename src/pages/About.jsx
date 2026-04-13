@@ -6,7 +6,7 @@ import './About.css';
 const About = () => {
   return (
     <div className="bg-surface text-on-surface font-body selection:bg-primary-container selection:text-on-primary-container overflow-x-hidden min-h-screen flex flex-col">
-      <div className="max-w-7xl mx-auto px-6 pt-4 w-full">
+      <div className="max-w-7xl mx-auto px-6 pt-4 w-full relative z-[100]">
         <Header />
       </div>
 

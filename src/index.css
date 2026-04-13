@@ -196,3 +196,26 @@ body {
     border-radius: 0;
   }
 }
+
+/* Mobile Menu Animations */
+@keyframes slideInFromTop {
+  from {
+    transform: translateY(-10px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.animate-mobile-menu {
+  animation: slideInFromTop 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@layer utilities {
+  .fade-in {
+    opacity: 1;
+    transition: opacity 0.2s ease-out;
+  }
+}

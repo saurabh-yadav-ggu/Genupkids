@@ -106,13 +106,16 @@ export default function MathClimbGame() {
   }
 
   return (
-    <>
+    <div className={styles.shell} style={{
+      width: '100%',
+      minHeight: '100vh',
+      position: 'relative',
+    }}>
       {winner && (
         <WinnerOverlay winner={winner} onRestart={restart} />
       )}
 
-      <div className="game-viewport" style={{ overflowY: 'auto', padding: '20px 0' }}>
-        <div ref={containerRef} className={`${styles.shell} game-content-card`} style={{ border: 'none', maxWidth: '96%', height: 'fit-content', minHeight: '100%' }}>
+      <div ref={containerRef} style={{ width: '100%', minHeight: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
         <div className={styles.sun} />
 
         <button 
@@ -134,6 +137,7 @@ export default function MathClimbGame() {
           <span className="material-symbols-rounded" style={{ fontSize: '20px', fontWeight: '800' }}>arrow_back_ios_new</span>
           BACK
         </button>
+
 
         {CLOUDS.map((c, i) => (
           <div
@@ -271,6 +275,5 @@ export default function MathClimbGame() {
         </button>
       </div>
     </div>
-    </>
   )
 }

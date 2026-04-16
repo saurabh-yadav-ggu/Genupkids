@@ -87,7 +87,7 @@ const MathRaceGame = () => {
   };
 
   return (
-    <>
+    <div className="race-game">
       {winner && <Winner who={winner} onReset={reset} />}
       <FullscreenButton />
 
@@ -153,7 +153,7 @@ const MathRaceGame = () => {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

@@ -11,6 +11,7 @@ const GameZone = lazy(() => import('../pages/GameZone'));
 const Login = lazy(() => import('../pages/Login'));
 const About = lazy(() => import('../pages/About'));
 const HeroVerse = lazy(() => import('../pages/HeroVerse'));
+const CreateHero = lazy(() => import('../pages/CreateHero'));
 
 // Lazy load games
 const DiceGame = lazy(() => import('../games/dice/DiceGame'));
@@ -60,6 +61,7 @@ const AppRouter = () => {
             <Route path="/games" element={<GameZone />} />
             <Route path="/about" element={<About />} />
             <Route path="/heroverse" element={<HeroVerse />} />
+            <Route path="/heroverse/create" element={<CreateHero />} />
 
             {/* Numerical/Math Games */}
             <Route path="/games/numerical" element={<NumericalGamesDashboard />} />

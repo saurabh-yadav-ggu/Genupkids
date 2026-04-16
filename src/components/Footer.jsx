@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
@@ -13,10 +14,9 @@ const Footer = () => {
           </div>
       </div>
       <div className="flex flex-wrap justify-center gap-x-8 gap-y-4">
-        <a className="font-body text-base font-medium text-on-surface-variant hover:text-primary transition-colors hover:underline decoration-wavy" href="#">Privacy Policy</a>
-        <a className="font-body text-base font-medium text-on-surface-variant hover:text-primary transition-colors hover:underline decoration-wavy" href="#">Terms of Service</a>
-
-        <a className="font-body text-base font-medium text-on-surface-variant hover:text-primary transition-colors hover:underline decoration-wavy" href="#">Support</a>
+        <Link to="/about" className="font-body text-base font-medium text-on-surface-variant hover:text-primary transition-colors hover:underline decoration-wavy">Privacy Policy</Link>
+        <Link to="/about" className="font-body text-base font-medium text-on-surface-variant hover:text-primary transition-colors hover:underline decoration-wavy">Terms of Service</Link>
+        <Link to="/about" className="font-body text-base font-medium text-on-surface-variant hover:text-primary transition-colors hover:underline decoration-wavy">Support</Link>
       </div>
       <p className="text-on-surface-variant/80 font-medium text-sm text-center mt-4">
           © {new Date().getFullYear()} GenUp Kid. Built with magic and curiosity.

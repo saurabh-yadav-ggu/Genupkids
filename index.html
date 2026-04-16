@@ -4,6 +4,21 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- SECURITY: Content Security Policy — prevents XSS by whitelisting trusted sources -->
+    <meta http-equiv="Content-Security-Policy" content="
+      default-src 'self';
+      script-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://www.gstatic.com;
+      style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
+      img-src 'self' data: blob: https://api.dicebear.com https://lh3.googleusercontent.com;
+      font-src 'self' https://fonts.gstatic.com;
+      frame-src https://gemini.google.com;
+      connect-src 'self' https://*.firebaseio.com https://*.googleapis.com https://identitytoolkit.googleapis.com;
+      object-src 'none';
+      base-uri 'self';
+    " />
+    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+
     <meta name="description" content="GenUp Kid - Interactive Learning Dashboard. Fun games designed to boost your child's skills through interactive play and joyful exploration." />
     <title>GenUp Kid - Interactive Learning Dashboard</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">

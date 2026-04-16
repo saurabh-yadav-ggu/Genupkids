@@ -1,34 +1,23 @@
+// src/contexts/AuthContext.jsx
+// PART 2 (DIP Fix): AuthContext now depends on the authService abstraction,
+// NOT the Firebase SDK directly. Swapping auth providers = 1 file change.
 import React, { createContext, useContext, useEffect, useState } from 'react';
-import { auth } from '../firebase';
-import { 
-  onAuthStateChanged, 
-  createUserWithEmailAndPassword, 
-  signInWithEmailAndPassword, 
-  signOut 
-} from 'firebase/auth';
+import { authService } from '../services/authService';
 
-const AuthContext = createContext();
+const AuthContext = createContext(null);
 
-export const useAuth = () => useContext(AuthContext);
+export const useAuth = () => {
+  const ctx = useContext(AuthContext);
+  if (!ctx) throw new Error('useAuth must be used inside AuthProvider');
+  return ctx;
+};
 
 export const AuthProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  function signup(email, password) {
-    return createUserWithEmailAndPassword(auth, email, password);
-  }
-
-  function login(email, password) {
-    return signInWithEmailAndPassword(auth, email, password);
-  }
-
-  function logout() {
-    return signOut(auth);
-  }
-
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, user => {
+    const unsubscribe = authService.onAuthStateChanged((user) => {
       setCurrentUser(user);
       setLoading(false);
     });
@@ -37,9 +26,9 @@ export const AuthProvider = ({ children }) => {
 
   const value = {
     currentUser,
-    signup,
-    login,
-    logout
+    signup: authService.signup,
+    login: authService.login,
+    logout: authService.logout,
   };
 
   return (

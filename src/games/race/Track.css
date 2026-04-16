@@ -1,4 +1,6 @@
-.track-container {
+/* Track.css — scoped under .race-game */
+
+.race-game .track-container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -7,7 +9,7 @@
   width: 100%;
 }
 
-.finish-banner {
+.race-game .finish-banner {
   font-family: 'Plus Jakarta Sans', sans-serif;
   font-size: clamp(13px, 1.6vw, 20px);
   color: #fff;
@@ -22,7 +24,7 @@
   border: 2px solid #cbd5e1;
 }
 
-.track-scene {
+.race-game .track-scene {
   position: relative;
   width: 100%;
   flex: 1;
@@ -34,7 +36,7 @@
   background: #22c55e;
 }
 
-.grass-bg {
+.race-game .grass-bg {
   position: absolute;
   inset: 0;
   background-color: #22c55e;
@@ -44,7 +46,7 @@
   opacity: 0.8;
 }
 
-.asphalt-track {
+.race-game .asphalt-track {
   position: absolute;
   top: 0;
   bottom: 0;
@@ -57,7 +59,7 @@
   overflow: hidden;
 }
 
-.center-line {
+.race-game .center-line {
   position: absolute;
   top: 0;
   bottom: 0;
@@ -68,7 +70,7 @@
   opacity: 0.9;
 }
 
-.rumble-strip {
+.race-game .rumble-strip {
   position: absolute;
   top: 0;
   bottom: 0;
@@ -76,10 +78,10 @@
   background-image: repeating-linear-gradient(to bottom, #ef4444 0, #ef4444 30px, #ffffff 30px, #ffffff 60px);
 }
 
-.left-rumble { left: 0; }
-.right-rumble { right: 0; }
+.race-game .left-rumble  { left: 0; }
+.race-game .right-rumble { right: 0; }
 
-.finish-stripe {
+.race-game .finish-stripe {
   position: absolute;
   top: 5%;
   left: 0;
@@ -90,7 +92,7 @@
   opacity: .9;
 }
 
-.start-stripe {
+.race-game .start-stripe {
   position: absolute;
   bottom: 15%;
   left: 0;
@@ -101,7 +103,7 @@
   opacity: 0.9;
 }
 
-.step-markers {
+.race-game .step-markers {
   position: absolute;
   left: 6%;
   right: 6%;
@@ -111,21 +113,21 @@
   pointer-events: none;
 }
 
-.lane-marker {
+.race-game .lane-marker {
   width: 40%;
   display: flex;
   align-items: center;
 }
 
-.marker-line {
+.race-game .marker-line {
   flex: 1;
   height: 2px;
   background: rgba(255, 255, 255, .15);
 }
 
-.marker-gap { width: 20%; }
+.race-game .marker-gap { width: 20%; }
 
-.lane-label {
+.race-game .lane-label {
   position: absolute;
   top: 5.8%;
   z-index: 7;
@@ -137,19 +139,19 @@
   box-shadow: 0 3px 10px rgba(0, 0, 0, .45);
 }
 
-.lane-p1-label {
+.race-game .lane-p1-label {
   left: 17%;
   background: linear-gradient(135deg, #3b82f6, #1d4ed8);
   box-shadow: 0 3px 10px rgba(59, 130, 246, .45);
 }
 
-.lane-p2-label {
+.race-game .lane-p2-label {
   right: 17%;
   background: linear-gradient(135deg, #ef4444, #b91c1c);
   box-shadow: 0 3px 10px rgba(239, 68, 68, .45);
 }
 
-.car-wrapper {
+.race-game .car-wrapper {
   position: absolute;
   transform: translateX(-50%) translateY(-50%);
   transition: top .65s cubic-bezier(.34, 1.56, .64, 1);
@@ -157,10 +159,10 @@
   filter: drop-shadow(0 8px 12px rgba(0, 0, 0, .4));
 }
 
-.car-p1 { left: 28%; }
-.car-p2 { left: 72%; }
+.race-game .car-p1 { left: 28%; }
+.race-game .car-p2 { left: 72%; }
 
-.start-label {
+.race-game .start-label {
   font-family: 'Plus Jakarta Sans', sans-serif;
   font-size: clamp(12px, 1.4vw, 17px);
   color: #1e3a5f;
@@ -172,7 +174,7 @@
   flex-shrink: 0;
 }
 
-.progress-bars {
+.race-game .progress-bars {
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -180,13 +182,13 @@
   flex-shrink: 0;
 }
 
-.progress-item {
+.race-game .progress-item {
   display: flex;
   align-items: center;
   gap: 8px;
 }
 
-.progress-label {
+.race-game .progress-label {
   font-family: 'Be Vietnam Pro', sans-serif;
   font-weight: 800;
   font-size: clamp(11px, 1.2vw, 15px);
@@ -194,7 +196,7 @@
   min-width: 44px;
 }
 
-.progress-bar {
+.race-game .progress-bar {
   flex: 1;
   background: #f1f5f9;
   border-radius: 999px;
@@ -203,13 +205,13 @@
   box-shadow: inset 0 1px 3px rgba(0, 0, 0, .12);
 }
 
-.progress-fill {
+.race-game .progress-fill {
   height: 100%;
   border-radius: 999px;
   transition: width .6s cubic-bezier(.34, 1.56, .64, 1);
 }
 
-.progress-text {
+.race-game .progress-text {
   font-family: 'Be Vietnam Pro', sans-serif;
   font-weight: 700;
   font-size: clamp(11px, 1.2vw, 14px);

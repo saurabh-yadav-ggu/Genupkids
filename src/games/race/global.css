@@ -1,29 +1,9 @@
-/* Math Race Global Styles */
+/* Math Race — SCOPED under .race-game to prevent CSS bleed into other pages */
 
-*,
-*::before,
-*::after {
+/* ── Viewport wrapper ───────────────────────────────────── */
+.race-game {
   box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-html,
-body,
-#root {
   width: 100%;
-  min-height: 100%;
-  overflow-x: hidden;
-}
-
-body {
-  background: #f5f7f8; /* website surface */
-}
-
-button:focus { outline: none; }
-
-.app-root {
-  width: 100vw;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -32,13 +12,23 @@ button:focus { outline: none; }
   padding: 30px clamp(12px, 2vw, 32px) clamp(16px, 2vh, 32px);
   gap: 16px;
   font-family: 'Be Vietnam Pro', sans-serif;
+  background: #f5f7f8;
+  overflow-x: hidden;
+  position: relative;
 }
 
-.game-title {
+.race-game *,
+.race-game *::before,
+.race-game *::after {
+  box-sizing: border-box;
+}
+
+/* ── Layout helpers ─────────────────────────────────────── */
+.race-game .game-title {
   font-family: 'Plus Jakarta Sans', sans-serif;
   font-weight: 800;
   font-size: clamp(20px, 3.2vw, 44px);
-  color: #006093; /* website primary */
+  color: #006093;
   text-shadow: 0 3px 0 rgba(255, 255, 255, .85);
   text-align: center;
   letter-spacing: -1px;
@@ -46,7 +36,7 @@ button:focus { outline: none; }
   padding-bottom: clamp(4px, .6vh, 10px);
 }
 
-.main-row {
+.race-game .main-row {
   display: flex;
   align-items: stretch;
   justify-content: center;
@@ -57,14 +47,14 @@ button:focus { outline: none; }
   padding: 0 clamp(20px, 4vw, 60px);
 }
 
-.panel-container {
+.race-game .panel-container {
   display: flex;
   align-items: center;
   flex: 0 0 clamp(240px, 25vw, 360px);
   margin: 4px;
 }
 
-.track-container {
+.race-game .track-container {
   display: flex;
   align-items: stretch;
   justify-content: center;
@@ -73,25 +63,69 @@ button:focus { outline: none; }
   max-width: 900px;
 }
 
-.footer-hint {
+.race-game .footer-hint {
   font-family: 'Be Vietnam Pro', sans-serif;
   font-weight: 600;
   font-size: clamp(10px, 1.2vw, 15px);
-  color: #595c5d; /* on-surface-variant */
+  color: #595c5d;
   text-align: center;
   flex-shrink: 0;
   padding-top: clamp(4px, .5vh, 8px);
 }
 
-@media (max-width: 768px) {
-  .app-root { padding: 40px clamp(12px, 2vw, 32px) clamp(6px, 1vh, 14px); }
-  .main-row { flex-direction: column; gap: clamp(12px, 2vh, 20px); }
-  .panel-container { flex: 0 0 auto; width: 100%; max-width: 300px; margin: 0; }
-  .track-container { flex: 1; width: 100%; max-width: 400px; min-height: 60vh; }
+/* `game-viewport` and `game-content-card` are also only used inside the game */
+.race-game .game-viewport {
+  width: 100%;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
+.race-game .game-content-card {
+  width: 100%;
+  max-width: 100%;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* ── Mobile ─────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .race-game {
+    padding: 40px clamp(12px, 2vw, 32px) clamp(6px, 1vh, 14px);
+  }
+  .race-game .main-row {
+    flex-direction: column;
+    gap: clamp(12px, 2vh, 20px);
+  }
+  .race-game .panel-container {
+    flex: 0 0 auto;
+    width: 100%;
+    max-width: 300px;
+    margin: 0;
+  }
+  .race-game .track-container {
+    flex: 1;
+    width: 100%;
+    max-width: 400px;
+    min-height: 60vh;
+  }
+}
+
+/* ── Desktop large ──────────────────────────────────────── */
 @media (min-width: 1200px) {
-  .app-root { padding: 20px clamp(16px, 2vw, 40px) clamp(8px, 1vh, 20px); }
-  .track-container { flex: 0 0 clamp(400px, 45vw, 1000px); min-height: 600px; max-height: none; }
-  .panel-container { flex: 0 0 clamp(250px, 30vw, 400px); margin: clamp(12px, 1.5vh, 20px); }
+  .race-game {
+    padding: 20px clamp(16px, 2vw, 40px) clamp(8px, 1vh, 20px);
+  }
+  .race-game .track-container {
+    flex: 0 0 clamp(400px, 45vw, 1000px);
+    min-height: 600px;
+    max-height: none;
+  }
+  .race-game .panel-container {
+    flex: 0 0 clamp(250px, 30vw, 400px);
+    margin: clamp(12px, 1.5vh, 20px);
+  }
 }

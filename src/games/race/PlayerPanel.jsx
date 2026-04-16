@@ -51,7 +51,7 @@ function Panel({ player, isP1, onKey, disabled, shake }) {
     <div className="player-panel" style={{
       background: bg,
       borderColor: border,
-      animation: shake ? "shake .35s" : "none",
+      animation: shake ? "race-shake .35s" : "none",
     }}>
       <div className="player-name" style={{ color: tc }}>
         {isP1 ? "🔵 Player 1" : "Player 2 🔴"}

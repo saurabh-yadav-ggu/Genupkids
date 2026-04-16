@@ -162,19 +162,7 @@ export default function MathClimbGame() {
         </div>
 
         <div className={styles.mainRow}>
-          <div className={styles.sideCol}>
-            <PlayerPanel
-              player={p1}
-              playerNum={1}
-              onPress={(v) => handleInput(setP1, v)}
-              onClear={() => handleClear(setP1)}
-              onSubmit={() =>
-                handleSubmit(p1, setP1, 1, setP1Climbing)
-              }
-              winner={winner}
-            />
-          </div>
-
+          {/* Trees — centered, will reorder to top on mobile via CSS order */}
           <div className={styles.polesWrap}>
             <BananaTree
               correctCount={p1.correctCount}
@@ -190,17 +178,28 @@ export default function MathClimbGame() {
             />
           </div>
 
-          <div className={styles.sideCol}>
-            <PlayerPanel
-              player={p2}
-              playerNum={2}
-              onPress={(v) => handleInput(setP2, v)}
-              onClear={() => handleClear(setP2)}
-              onSubmit={() =>
-                handleSubmit(p2, setP2, 2, setP2Climbing)
-              }
-              winner={winner}
-            />
+          {/* Panels row — side-by-side below trees on mobile */}
+          <div className={styles.panelRow}>
+            <div className={styles.sideCol}>
+              <PlayerPanel
+                player={p1}
+                playerNum={1}
+                onPress={(v) => handleInput(setP1, v)}
+                onClear={() => handleClear(setP1)}
+                onSubmit={() => handleSubmit(p1, setP1, 1, setP1Climbing)}
+                winner={winner}
+              />
+            </div>
+            <div className={styles.sideCol}>
+              <PlayerPanel
+                player={p2}
+                playerNum={2}
+                onPress={(v) => handleInput(setP2, v)}
+                onClear={() => handleClear(setP2)}
+                onSubmit={() => handleSubmit(p2, setP2, 2, setP2Climbing)}
+                winner={winner}
+              />
+            </div>
           </div>
         </div>
 

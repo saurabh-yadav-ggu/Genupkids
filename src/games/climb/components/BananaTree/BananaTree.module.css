@@ -1,27 +1,33 @@
+/* BananaTree.module.css — Responsive tree sizing */
+
 .column {
   display: flex;
   flex-direction: column;
   align-items: center;
+  flex-shrink: 0;
 }
 
+/* Stage: holds trunk + monkey + dots. Height drives everything. */
 .stage {
   position: relative;
-  width: 153px;
-  height: 630px;
+  width: clamp(90px, 12vw, 153px);
+  height: clamp(280px, 45vh, 630px); /* KEY FIX: was hardcoded 630px */
 }
 
 .trunk {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  width: 44px;
-  height: 630px;
-  background: linear-gradient(90deg,
-      #451a03 0%,
-      #78350f 25%,
-      #92400e 50%,
-      #78350f 75%,
-      #451a03 100%);
+  width: clamp(24px, 3.5vw, 44px);
+  height: 100%; /* fills .stage */
+  background: linear-gradient(
+    90deg,
+    #451a03 0%,
+    #78350f 25%,
+    #92400e 50%,
+    #78350f 75%,
+    #451a03 100%
+  );
   border-radius: 20px;
   box-shadow:
     inset -4px 0 10px rgba(0, 0, 0, 0.4),
@@ -32,8 +38,8 @@
 .grip {
   position: absolute;
   left: -4px;
-  width: 52px;
-  height: 16px;
+  width: calc(100% + 8px);
+  height: clamp(10px, 1.5vh, 16px);
   background: linear-gradient(90deg, #270f01, #451a03, #270f01);
   border-radius: 8px;
   box-shadow:
@@ -46,8 +52,8 @@
   bottom: -24px;
   left: 50%;
   transform: translateX(-50%);
-  width: 90px;
-  height: 32px;
+  width: clamp(50px, 7vw, 90px);
+  height: clamp(20px, 2.5vh, 32px);
   background: linear-gradient(180deg, #5c2406, #2e1001);
   border-radius: 45px / 16px;
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.35);
@@ -58,9 +64,9 @@
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  width: 14px;
-  height: 14px;
-  border-radius: 7px;
+  width: clamp(8px, 1.2vw, 14px);
+  height: clamp(8px, 1.2vw, 14px);
+  border-radius: 50%;
   opacity: 0.85;
   z-index: 0;
 }

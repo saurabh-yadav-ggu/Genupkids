@@ -12,6 +12,7 @@ const Login = lazy(() => import('../pages/Login'));
 const About = lazy(() => import('../pages/About'));
 const HeroVerse = lazy(() => import('../pages/HeroVerse'));
 const CreateHero = lazy(() => import('../pages/CreateHero'));
+const MapQuest = lazy(() => import('../pages/MapQuest'));
 
 // Lazy load games
 const DiceGame = lazy(() => import('../games/dice/DiceGame'));
@@ -69,6 +70,7 @@ const AppRouter = () => {
             <Route path="/games/numerical/climb" element={<MathClimbGame />} />
             <Route path="/games/numerical/race" element={<MathRaceGame />} />
             <Route path="/games/numerical/tug" element={<MathTugOfWarGame />} />
+            <Route path="/games/map" element={<MapQuest />} />
           </Route>
 
         </Routes>

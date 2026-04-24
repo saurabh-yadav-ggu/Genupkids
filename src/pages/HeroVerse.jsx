@@ -2,10 +2,11 @@
 // PART 1 (Security): Sandboxed iframe, referrerPolicy, no dangerouslySetInnerHTML.
 // PART 2 (SRP): Sidebar, AdventureCard, FlipbookModal are isolated components.
 // PART 4 (LLD): Business logic lives in useHeroVerse hook. This is a pure presenter.
-import React from 'react';
+import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useHeroVerse } from '../hooks/useHeroVerse';
 import { sidebarItems } from '../data/heroverse';
+import PoemCanvas from '../components/poem-canvas/PoemCanvas';
 
 // ---------- Sidebar ----------
 const Sidebar = ({ activeTab, onTabChange, onCreateHero }) => (
@@ -28,11 +29,10 @@ const Sidebar = ({ activeTab, onTabChange, onCreateHero }) => (
             key={item.name}
             onClick={() => onTabChange(item.name)}
             aria-current={isActive ? 'page' : undefined}
-            className={`w-full flex items-center gap-4 px-6 py-4 rounded-2xl font-display font-bold text-lg transition-all ${
-              isActive
-                ? 'bg-primary-container text-on-primary-container shadow-sm'
-                : 'text-on-surface-variant hover:bg-surface-container hover:text-on-surface'
-            }`}
+            className={`w-full flex items-center gap-4 px-6 py-4 rounded-2xl font-display font-bold text-lg transition-all ${isActive
+              ? 'bg-primary-container text-on-primary-container shadow-sm'
+              : 'text-on-surface-variant hover:bg-surface-container hover:text-on-surface'
+              }`}
           >
             <span className="material-symbols-rounded" aria-hidden="true">{item.icon}</span>
             {item.name}
@@ -188,9 +188,17 @@ const HeroVerse = () => {
     isFlipbookOpen, openFlipbook, closeFlipbook,
   } = useHeroVerse();
 
+  // Poem Canvas karaoke reader state
+  const [isPoemCanvasOpen, setIsPoemCanvasOpen] = useState(false);
+  const [selectedPoemData, setSelectedPoemData] = useState(null);
+
   const handleCardClick = (card) => {
-    if (card.flipbookUrl) openFlipbook();
-    // Future: navigate to card detail page for non-flipbook cards
+    if (card.category === 'Poem') {
+      setSelectedPoemData(card);
+      setIsPoemCanvasOpen(true);
+    } else if (card.flipbookUrl) {
+      openFlipbook();
+    }
   };
 
   return (
@@ -240,6 +248,13 @@ const HeroVerse = () => {
           isOpen={isFlipbookOpen}
           onClose={closeFlipbook}
           url="https://gemini.google.com/share/72011685966a"
+        />
+
+        {/* Poem Canvas — Karaoke reading experience */}
+        <PoemCanvas
+          isOpen={isPoemCanvasOpen}
+          onClose={() => setIsPoemCanvasOpen(false)}
+          selectedPoem={selectedPoemData}
         />
       </main>
     </div>

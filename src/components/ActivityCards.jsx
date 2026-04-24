@@ -27,11 +27,11 @@ const ActivityData = [
   },
   {
     id: 4,
-    title: 'Matching Games',
-    description: 'Match objects and improve memory skills with our elephant crew.',
-    icon: 'extension',
-    colorTheme: 'gray',
-    buttonText: 'Start Match',
+    title: 'Interactive Map',
+    description: "Explore India's states and capitals with our interactive adventure map!",
+    icon: 'map',
+    colorTheme: 'tertiary',
+    buttonText: 'Explore Map',
   }
 ];
 

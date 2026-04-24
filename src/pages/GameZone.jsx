@@ -44,7 +44,7 @@ const GameZone = () => {
             onSelectNumerical={() => navigate('/games/numerical')} 
             onSelectAlphabetical={() => navigate('/games/alphabetical')} 
             onSelectThinking={() => navigate('/games/thinking')} 
-            onSelectMatching={() => navigate('/games/matching')} 
+            onSelectMatching={() => navigate('/games/map')} 
           />
         </div>
 

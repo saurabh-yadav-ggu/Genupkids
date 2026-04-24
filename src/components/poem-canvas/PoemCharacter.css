@@ -1,0 +1,54 @@
+/* src/components/poem-canvas/PoemCharacter.css */
+
+.char-wrapper {
+  position: absolute;
+  bottom: 80px;
+  right: 20px;
+  width: 140px;
+  z-index: 5;
+  pointer-events: none;
+  transition: transform 0.3s ease;
+}
+
+.char-img {
+  width: 100%;
+  filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.35));
+  animation: charFloat 3s ease-in-out infinite;
+}
+
+.char-wrapper.pointing .char-img {
+  animation: charFloat 3s ease-in-out infinite, pointBounce 0.5s ease;
+}
+
+@keyframes charFloat {
+  0%, 100% {
+    transform: translateY(0) rotate(-1deg);
+  }
+  50% {
+    transform: translateY(-12px) rotate(1deg);
+  }
+}
+
+@keyframes pointBounce {
+  0% { transform: scale(1); }
+  40% { transform: scale(1.1) rotate(3deg); }
+  100% { transform: scale(1); }
+}
+
+.point-pulse {
+  position: absolute;
+  top: 30%;
+  left: -12px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #FFD700;
+  box-shadow: 0 0 0 0 rgba(255, 215, 0, 0.7);
+  animation: pulse 1s ease-out infinite;
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(255, 215, 0, 0.7); }
+  70% { box-shadow: 0 0 0 14px rgba(255, 215, 0, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(255, 215, 0, 0); }
+}
